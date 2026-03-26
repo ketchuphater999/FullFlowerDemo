@@ -4,6 +4,10 @@
 
 - I used an object-oriented NPC class, as this is how I have implemented similar systems like NPCs, map resources, et cetera in my games. It allows for easily extendable NPC behaviors and cleaner implementation than singletons.
 
+- I used my own Networking module and bootstrap system that I have written & used previously.
+
+- I avoid using ClientScripts and ServerScripts unless necessary, and I keep most of my systems as singleton modulescripts.
+
 - The NPC class uses simple state management to prevent multiple simultaneous interactions and edge cases.
 
 - I used a simple client-side dialogue handler that can deal with multi-line dialogue and player choices.
