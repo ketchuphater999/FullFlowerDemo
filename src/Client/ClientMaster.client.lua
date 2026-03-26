@@ -4,26 +4,15 @@ local Player = Players.LocalPlayer
 
 local Client = Player:WaitForChild("PlayerScripts")
 local Shared = ReplicatedStorage:WaitForChild("Shared")
-local Lib = ReplicatedStorage:WaitForChild("Lib")
 
 local Network = require(Shared.Systems.Network)
 Network.init()
 
 local loadOrder = {
-    -- Client.Systems.MapLoader,
-    -- Client.Systems.MapView,
-    -- Client.Systems.CameraControl,
-    -- Client.Systems.Highlights,
-    -- Client.Systems.Autocomplete,
-    -- Client.Systems.MapController,
-    -- Client.Systems.GameHandler,
+    
 }
 
 local ui = {
-    -- Client.Ui.StarterGuiHandler,
-    -- Client.Ui.SearchBox,
-    -- Client.Ui.Tooltips,
-    -- Client.Ui.Menu,
     Client.Ui.DialogueBox,
     Client.Ui.MoneyGui
 }
