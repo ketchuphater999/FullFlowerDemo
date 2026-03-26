@@ -35,6 +35,7 @@ function NPC:doSale(player)
 	-- take their furniture
 	player.Character.Humanoid:UnequipTools()
 	player.Backpack:ClearAllChildren()
+	player:SetAttribute("FurnitureState", "Empty")
 end
 
 function NPC:refuseSale(player)
