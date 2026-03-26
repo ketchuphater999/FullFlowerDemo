@@ -48,6 +48,7 @@ end
 function NPC:startDialogue(player)
 	self.state = "talking"
 	self.currentPlayer = player
+	player:SetAttribute("InDialogue", true)
 
 	local state = player:GetAttribute(self.data.interactionData.listenState)
 	local dialogueOption = self.data.interactionData.data[state] or {strings = {"i have no idea what to say :("}}
@@ -72,7 +73,7 @@ function NPC.new(model: Model)
 
 	self.proximityPrompt = self.model.PromptPart.ProximityPrompt
 	self.proximityPrompt.Triggered:Connect(function(player)
-		if self.state ~= "idle" then
+		if self.state ~= "idle" or player:GetAttribute("InDialogue") == true then
 			return
 		end
 		self:startDialogue(player)
@@ -83,6 +84,7 @@ function NPC.new(model: Model)
 		if player and player == self.currentPlayer then
 			self.currentPlayer = nil
 			self.state = "idle"
+			player:SetAttribute("InDialogue", false)
 		end
 	end)
 	Network.hook("DialogueOptionSelected", function(player, option)
