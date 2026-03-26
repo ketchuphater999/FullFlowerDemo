@@ -33,3 +33,5 @@ I performed some basic test cases including:
 - The NPCs could track their past transactions and use this to inform future behavior- for example, an NPC who has purchased from the player many times may be more likely to come back.
 
 - NPCs could have more complex behaviors or "personalities"- maybe different NPCs prefer different styles of furniture, and will pay more for their preferences.
+
+- The state of the Dialogue GUI and the NPC interaction state are not strongly tied -- there are networked events that pass between the server-side NPC logic and the client-side dialogue handler, but it is concievable that some edge cases may cause their states to get out of sync. I would think about building a more robust system where the player/NPC interaction state and the GUI are strongly connected.
